@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffb800">
+  <title>Wi-Fi Berton | Clube de Vantagens</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="portal">
+    <header class="marca">
+      <img src="imagens/logo-berton.png"
+           alt="Clube de Vantagens Berton — Mais barato ainda!"
+           width="1313" height="1198">
+    </header>
+
+    <section class="acesso" aria-labelledby="titulo">
+      <img class="mascote" src="imagens/mascote-berton.png"
+           alt="" width="1536" height="1024">
+
+      <div class="identificacao">
+        <svg class="icone-wifi" viewBox="0 0 64 48" fill="none"
+             stroke="currentColor" stroke-width="5.5"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M5 12a43 43 0 0 1 54 0"/>
+          <path d="M14 23a29 29 0 0 1 36 0"/>
+          <path d="M23 33a15 15 0 0 1 18 0"/>
+          <circle cx="32" cy="43" r="3.5" fill="currentColor" stroke="none"/>
+        </svg>
+        <span>WI-FI BERTON</span>
+      </div>
+
+      <h1 id="titulo">Vamos conectar você?</h1>
+      <p class="descricao">Aceite os termos e aproveite sua conexão.</p>
+
+      <!-- Prévia visual: integrar este formulário ao portal Intelbras. -->
+      <form class="formulario">
+        <div class="consentimento">
+          <input type="checkbox" id="aceite" name="aceite" required>
+          <div class="texto-termos">
+            <label for="aceite">Li e aceito os</label>
+            <!-- Trocar # pelos endereços reais dos documentos da loja. -->
+            <a href="#">Termos de Uso</a>
+            <label for="aceite">e a</label>
+            <a href="#">Política de Privacidade.</a>
+          </div>
+        </div>
+
+        <!-- type="button": a conexão real depende da integração. -->
+        <button class="botao-conectar" type="button">
+          <span>Conectar ao Wi-Fi</span>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor"
+               stroke-width="3" stroke-linecap="round"
+               stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 16h22M17 6l10 10-10 10"/>
+          </svg>
+        </button>
+      </form>
+    </section>
+
+    <footer>Boa conexão. Boas compras.</footer>
+  </main>
+</body>
+</html>

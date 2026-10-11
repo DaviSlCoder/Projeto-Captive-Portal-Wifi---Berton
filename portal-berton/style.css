@@ -1,0 +1,207 @@
+:root {
+  color-scheme: light;
+  --verde: #00672d;
+  --verde-escuro: #003e1d;
+  --branco: #fffefa;
+}
+
+* { box-sizing: border-box; }
+
+html { min-height: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  color: var(--verde-escuro);
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffa714 url("imagens/fundo-berton.png") center / cover no-repeat;
+}
+
+.portal {
+  --mascote-largura: clamp(88px, 38vw, 220px);
+  --mascote-sobreposicao: 12px;
+  width: min(100%, 632px);
+  margin-inline: auto;
+  padding: max(clamp(20px, 3vw, 32px), env(safe-area-inset-top))
+           max(16px, env(safe-area-inset-right))
+           max(24px, env(safe-area-inset-bottom))
+           max(16px, env(safe-area-inset-left));
+}
+
+.marca img {
+  display: block;
+  width: clamp(140px, 44vw, 220px);
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.acesso {
+  position: relative;
+  isolation: isolate;
+  /* Reserva a altura da imagem (1536 x 1024), descontando a sobreposicao. */
+  margin-top: calc(var(--mascote-largura) * 2 / 3 - var(--mascote-sobreposicao) + 12px);
+  padding: clamp(24px, 4vw, 32px) clamp(18px, 4vw, 32px);
+  border-radius: clamp(20px, 4vw, 28px);
+  background: var(--branco);
+  box-shadow: 0 16px 30px rgb(166 64 0 / 12%);
+}
+
+.mascote {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: calc(100% - var(--mascote-sobreposicao));
+  width: var(--mascote-largura);
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.identificacao {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--verde);
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0.045em;
+}
+
+.icone-wifi {
+  flex: 0 0 auto;
+  width: clamp(36px, 7vw, 48px);
+  height: auto;
+}
+
+h1 {
+  margin: 20px 0 10px;
+  font-size: clamp(1.625rem, 5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.12;
+}
+
+.descricao {
+  margin: 0;
+  color: #3e3e3e;
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+.consentimento {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-block: 24px;
+}
+
+.consentimento input {
+  appearance: none;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  border: 2px solid var(--verde);
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+}
+
+.consentimento input:checked { background: var(--verde); }
+
+.consentimento input:checked::after {
+  content: "";
+  width: 14px;
+  height: 8px;
+  border-left: 4px solid white;
+  border-bottom: 4px solid white;
+  transform: translateY(-2px) rotate(-45deg);
+}
+
+.texto-termos {
+  min-width: 0;
+  color: #343434;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.texto-termos label { cursor: pointer; }
+
+a {
+  color: var(--verde-escuro);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.botao-conectar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 16px;
+  border: 1px solid #08732e;
+  border-radius: 20px;
+  color: white;
+  background: linear-gradient(115deg, #19853a, #005127);
+  box-shadow: inset 0 2px 1px rgb(255 255 255 / 18%),
+              0 8px 14px rgb(65 66 0 / 18%);
+  font: 700 clamp(1.125rem, 2.8vw, 1.25rem) / 1.25 Arial, Helvetica, sans-serif;
+  letter-spacing: -0.025em;
+  cursor: pointer;
+  transition: filter 150ms ease, transform 150ms ease;
+}
+
+.botao-conectar span {
+  min-width: 0;
+}
+
+h1, .descricao, .texto-termos, .botao-conectar span, footer {
+  overflow-wrap: anywhere;
+}
+
+.botao-conectar svg {
+  flex: 0 0 auto;
+  width: 24px;
+  height: auto;
+}
+
+.botao-conectar:hover { filter: brightness(1.08); }
+.botao-conectar:active { transform: translateY(1px); }
+
+:focus-visible {
+  outline: 3px solid #003e1d;
+  outline-offset: 5px;
+}
+
+footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+@media (max-height: 600px) {
+  .portal {
+    --mascote-largura: clamp(88px, 30vw, 120px);
+    padding-top: max(12px, env(safe-area-inset-top));
+  }
+
+  .marca img { width: 140px; }
+  .acesso { padding-block: 24px; }
+  h1 { margin-top: 16px; }
+  .consentimento { margin-block: 20px; }
+  footer { margin-top: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao-conectar { transition: none; }
+}
